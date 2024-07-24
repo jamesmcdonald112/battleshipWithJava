@@ -1,6 +1,6 @@
 type: edu
 files:
-  - name: src/battleship/Main.java
+  - name: src/battleship/main/Runner.java
     visible: true
     text: |
       package battleship;
@@ -156,6 +156,27 @@ files:
           }
       }
     learner_created: false
-feedback_link: https://hyperskill.org/projects/383/stages/2281/implement#comment
+  - name: src/battleship/game/PlayGame.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/gameScreen/CreateGameScreen.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/io/output/DisplayGameScreen.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/io/input/UserInputHandler.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/shipPlacement/ShipPlacementValidator.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/shipPlacement/ShipPlacementHandler.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/io/input/UserInputValidator.java
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/learn/step/35304#comment
 status: Unchecked
 record: -1

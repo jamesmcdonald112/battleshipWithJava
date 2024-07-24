@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -9,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Battleship with Java/task" />
             <option value="$PROJECT_DIR$/Topics/For-loop/From sum to product" />
             <option value="$PROJECT_DIR$/Topics/For-loop/Generate an inverted pyramid from asterisks" />
             <option value="$PROJECT_DIR$/Topics/For-loop/Multiplication Table" />
@@ -18,6 +20,23 @@
             <option value="$PROJECT_DIR$/Topics/For-loop/The count of numbers divisible by N" />
             <option value="$PROJECT_DIR$/Topics/For-loop/The sum of integers from a to b" />
             <option value="$PROJECT_DIR$/Topics/For-loop/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Creating a digit to word conversion program" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Decoding traffic signal colors from input codes" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/From string to a number" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Removing breaks" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Rewriting code using switch" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Shape" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Test learners" />
+            <option value="$PROJECT_DIR$/Topics/Multiple conditions  switch/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Create an euphonious word" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Determine the output" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Determine the value" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Determine the value (1)" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Double characters" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Finding the longest word in a sentence" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Generating passwords" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Move the first N characters" />
+            <option value="$PROJECT_DIR$/Topics/Processing strings/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
