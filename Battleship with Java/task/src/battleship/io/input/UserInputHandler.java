@@ -1,5 +1,6 @@
 package battleship.io.input;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInputHandler {
@@ -13,4 +14,18 @@ public class UserInputHandler {
         return SCANNER.nextLine();
     }
 
+    /**
+     * Ensures the input is an int
+     * @param input The String to be parsed to an int
+     * @return The int if it can be parsed or -1.
+     */
+    public static int parseInt(String input) {
+        int integer = -1;
+        try {
+            integer = Integer.parseInt(input);
+        }catch (NumberFormatException e) {
+            System.out.println("Must be a number from 1-10");
+        }
+        return integer;
+    }
 }

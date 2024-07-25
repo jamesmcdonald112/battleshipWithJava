@@ -4,8 +4,9 @@ import battleship.gameScreen.CreateGameScreen;
 import battleship.io.input.UserInputHandler;
 import battleship.io.input.UserInputValidator;
 import battleship.io.output.DisplayGameScreen;
-import battleship.shipPlacement.ShipPlacementHandler;
-import battleship.shipPlacement.ShipPlacementValidator;
+import battleship.ship.Ship;
+import battleship.ship.ShipPlacementHandler;
+import battleship.ship.ShipPlacementValidator;
 
 public class PlayGame {
 
@@ -17,6 +18,7 @@ public class PlayGame {
         DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
 
         // Get the coordinates of the ship
+        System.out.println("Enter the coordinates of the ship: ");
         String userInput = UserInputHandler.getUserString();
         System.out.println(userInput);
 
@@ -38,6 +40,9 @@ public class PlayGame {
             // Validate coordinates
             if (ShipPlacementValidator.isValidCoordinates(start, end, gameScreen.getGameScreen())) {
                 ShipPlacementHandler.placeShip(start, end, gameScreen.getGameScreen());
+                Ship ship = new Ship(start, end);
+                System.out.println("Length: " + ship.getLength());
+                System.out.println("Parts: " + String.join(" ", ship.getPositions()));
 
                 // Display the updated game filed
                 DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());

@@ -1,4 +1,6 @@
-package battleship.shipPlacement;
+package battleship.ship;
+
+import battleship.io.input.UserInputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +21,9 @@ public class ShipPlacementValidator {
         // Parse the start and end coordinates
         char startRow = start.charAt(0);
         // Gets the numbers that are double digits
-        int startCol = Integer.parseInt(start.substring(1));
+        int startCol = UserInputHandler.parseInt(start.substring(1));
         char endRow = end.charAt(0);
-        int endCol = Integer.parseInt(end.substring(1));
+        int endCol = UserInputHandler.parseInt(end.substring(1));
 
         // Make sure they are letters from 'A' to 'J' and numbers from 1-10
         if ((!isWithinBounds(startRow, startCol)) || (!isWithinBounds(endRow, endCol))) {

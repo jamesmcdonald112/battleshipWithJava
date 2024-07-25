@@ -168,15 +168,21 @@ files:
   - name: src/battleship/io/input/UserInputHandler.java
     visible: true
     learner_created: true
-  - name: src/battleship/shipPlacement/ShipPlacementValidator.java
+  - name: src/battleship/ship/ShipPlacementValidator.java
     visible: true
     learner_created: true
-  - name: src/battleship/shipPlacement/ShipPlacementHandler.java
+  - name: src/battleship/ship/ShipPlacementHandler.java
     visible: true
     learner_created: true
   - name: src/battleship/io/input/UserInputValidator.java
     visible: true
     learner_created: true
+  - name: src/battleship/ship/Ship.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/35304#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 25 Jul 2024 12:53:21 UTC"
 record: -1

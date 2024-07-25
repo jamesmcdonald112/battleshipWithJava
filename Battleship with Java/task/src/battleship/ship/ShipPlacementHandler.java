@@ -1,4 +1,4 @@
-package battleship.shipPlacement;
+package battleship.ship;
 
 public class ShipPlacementHandler {
 

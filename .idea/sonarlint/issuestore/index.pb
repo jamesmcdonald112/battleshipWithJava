@@ -15,3 +15,11 @@ y
 IBattleship with Java/task/src/battleship/gameScreen/CreateGameScreen.java,d/d/dd69c09a4d3809ec3609f3040a6ab908befccbb4
 y
 IBattleship with Java/task/src/battleship/io/output/DisplayGameScreen.java,7/7/770557d6b0cb6a7bc67eb0f7997931290cf553ee
+y
+IBattleship with Java/task/src/battleship/io/input/UserInputValidator.java,a/6/a665523e6e8eea38099c366834a663543d50a7af
+w
+GBattleship with Java/task/src/battleship/io/input/UserInputHandler.java,e/b/ebfcd7cf48f75ebbb529b43b966da3a6046cd67e
+‚
+RBattleship with Java/task/src/battleship/shipPlacement/ShipPlacementValidator.java,5/7/57cd1af2521e963711b8e03c81eae3e4565e00eb
+€
+PBattleship with Java/task/src/battleship/shipPlacement/ShipPlacementHandler.java,d/9/d984ce1375f4075c9919dbe6c2c800fa35c2b9e3
