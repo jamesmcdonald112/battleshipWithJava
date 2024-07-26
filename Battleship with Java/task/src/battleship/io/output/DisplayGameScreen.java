@@ -3,6 +3,11 @@ package battleship.io.output;
 public class DisplayGameScreen {
 
 
+    /**
+     * Displays the game screen in the terminal/
+     *
+     * @param gameScreen The current game screen to be printed.
+     */
     public static void displayGameScreen(char[][] gameScreen) {
         System.out.println(createPrintableGameScreen(gameScreen));
     }

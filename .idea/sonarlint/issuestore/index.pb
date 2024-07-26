@@ -19,7 +19,7 @@ y
 IBattleship with Java/task/src/battleship/io/input/UserInputValidator.java,a/6/a665523e6e8eea38099c366834a663543d50a7af
 w
 GBattleship with Java/task/src/battleship/io/input/UserInputHandler.java,e/b/ebfcd7cf48f75ebbb529b43b966da3a6046cd67e
-‚
-RBattleship with Java/task/src/battleship/shipPlacement/ShipPlacementValidator.java,5/7/57cd1af2521e963711b8e03c81eae3e4565e00eb
-€
-PBattleship with Java/task/src/battleship/shipPlacement/ShipPlacementHandler.java,d/9/d984ce1375f4075c9919dbe6c2c800fa35c2b9e3
+y
+IBattleship with Java/task/src/battleship/ship/ShipPlacementValidator.java,2/8/2863981fc10270c646c23e539ab22dd190ad8740
+g
+7Battleship with Java/task/src/battleship/ship/Ship.java,b/7/b7e247aa410ed333c0194b3f7afcca6f306c3dbd

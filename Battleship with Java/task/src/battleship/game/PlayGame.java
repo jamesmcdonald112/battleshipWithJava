@@ -7,6 +7,7 @@ import battleship.io.output.DisplayGameScreen;
 import battleship.ship.Ship;
 import battleship.ship.ShipPlacementHandler;
 import battleship.ship.ShipPlacementValidator;
+import battleship.ship.ShipType;
 
 public class PlayGame {
 
@@ -14,47 +15,58 @@ public class PlayGame {
         // Generates a blank game field
         CreateGameScreen gameScreen = new CreateGameScreen();
 
-        // Displays the blank game field
+        // Displays the blank≠ game field
         DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
 
-        // Get the coordinates of the ship
-        System.out.println("Enter the coordinates of the ship: ");
-        String userInput = UserInputHandler.getUserString();
-        System.out.println(userInput);
+        // Loops through each ship type
+        for (ShipType shipType : ShipType.values()) {
+            // A flag keep track if the ship has been placed
+            boolean validPlacement = false;
+            while (!validPlacement) {
 
-        // User input must not be empty or null
-        if (UserInputValidator.isNullOrEmpty(userInput)) {
-            System.out.println("Error! Coordinates must be provided.");
-            return;
-        }
+                // Prompt the user to enter the coordinates for the current ship
+                System.out.println("Enter the coordinates of the " + shipType.getName() + " (" + shipType.getLength() + " cells): ");
+                String userInput = UserInputHandler.getUserString();
 
-        String[] coordinates = userInput.split(" ");
+                // User input must not be empty or null
+                if (UserInputValidator.isNullOrEmpty(userInput)) {
+                    System.out.println("Error! Coordinates must be provided.");
+                    return;
+                }
 
-        // Must be only two coordinates given
-        if (coordinates.length == 2) {
+                // Separate the coordinates
+                String[] coordinates = userInput.split(" ");
 
-            // Start and end coordinates for ship placement
-            String start = coordinates[0];
-            String end = coordinates[1];
+                // Must be only two coordinates given
+                if (coordinates.length == 2) {
 
-            // Validate coordinates
-            if (ShipPlacementValidator.isValidCoordinates(start, end, gameScreen.getGameScreen())) {
-                ShipPlacementHandler.placeShip(start, end, gameScreen.getGameScreen());
-                Ship ship = new Ship(start, end);
-                System.out.println("Length: " + ship.getLength());
-                System.out.println("Parts: " + String.join(" ", ship.getPositions()));
+                    // Start and end coordinates for ship placement
+                    String start = coordinates[0];
+                    String end = coordinates[1];
 
-                // Display the updated game filed
-                DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
-            } else {
-                System.out.println("Error! Invalid coordinates.");
+                    // Validate coordinates
+                    if (ShipPlacementValidator.isValidCoordinates(start, end,
+                     shipType, gameScreen.getGameScreen())) {
+                        // Create the ship to be placed
+                        Ship ship = new Ship(start, end);
+                        ShipPlacementHandler.placeShip(ship, gameScreen.getGameScreen());
+
+                        // Update the valid placement to true
+                        validPlacement = true;
+
+                        // Displays the blank game field
+                        DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+
+                    }
+
+                } else {
+                    System.out.println("Error: Invalid input format. Please enter two coordinates.");
+                }
+
             }
 
 
-        } else {
-            System.out.println("Error: Invalid input format. Please enter two coordinates.");
+
         }
-
-
     }
 }

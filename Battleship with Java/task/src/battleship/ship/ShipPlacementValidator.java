@@ -10,7 +10,8 @@ public class ShipPlacementValidator {
     private static final List<Integer> POSSIBLE_COLUMNS = createPossibleColumnOptions();
 
 
-    public static boolean isValidCoordinates(String start, String end, char[][] gameBoard ){
+    public static boolean isValidCoordinates(String start, String end,
+                                             ShipType shipType, char[][] gameBoard) {
         // If the length of the coordinates given are incorrect, return
         if (!isValidLength(start, end)) {
             System.out.println("Error! Coordinates must be between 2-3 characters each");
@@ -41,6 +42,18 @@ public class ShipPlacementValidator {
         // Does not overlap with another boat
         if (isOverlapping(startRow, startCol, endRow, endCol, gameBoard)) {
             System.out.println("Error! Ship placement cannot overlap with another ship");
+            return false;
+        }
+
+        // Does not touch another boat
+        if (isTouching(startRow, startCol, endRow, endCol, gameBoard)) {
+            System.out.println("Error! Ship placement cannot touch another ship");
+            return false;
+        }
+
+        // Is the required ship length
+        if (!isCorrectLength(startRow, startCol, endRow, endCol, shipType)) {
+            System.out.println("Error! Ship must be of length " + shipType.getLength());
             return false;
         }
         return true;
@@ -79,7 +92,7 @@ public class ShipPlacementValidator {
      * than 3 characters in length
      *
      * @param start The starting coordinates to check
-     * @param end The ending coordinates to check
+     * @param end   The ending coordinates to check
      * @return True if the start and end are both at least length two but no greater than 3.
      */
     public static boolean isValidLength(String start, String end) {
@@ -103,7 +116,7 @@ public class ShipPlacementValidator {
      * Checks to make sure the ship placement is vertical
      *
      * @param startCol The starting col coordinates
-     * @param endCol The ending col coordinates
+     * @param endCol   The ending col coordinates
      * @return True if the placement is vertical; false otherwise.
      */
     private static boolean isVertical(int startCol, int endCol) {
@@ -115,7 +128,7 @@ public class ShipPlacementValidator {
      * Checks to make sure the ship placement is horizontal
      *
      * @param startRow The starting row coordinates
-     * @param endRow The ending row coordinates
+     * @param endRow   The ending row coordinates
      * @return True if the placement is horizontal; false otherwise
      */
     private static boolean isHorizontal(char startRow, char endRow) {
@@ -125,10 +138,10 @@ public class ShipPlacementValidator {
     /**
      * Checks to see if the boat placement is overlapping with another boat.
      *
-     * @param startRow The start row coordinate
-     * @param startCol The start col coordinate
-     * @param endRow The end row coordinate
-     * @param endCol The end col coordinate
+     * @param startRow  The start row coordinate
+     * @param startCol  The start col coordinate
+     * @param endRow    The end row coordinate
+     * @param endCol    The end col coordinate
      * @param gameBoard The game board to check
      * @return True if it is overlapping; false otherwise
      */
@@ -148,7 +161,7 @@ public class ShipPlacementValidator {
             // Iterate through the columns in the specified range
             for (int col = min; col <= max; col++) {
                 // Check if the cell is occupied
-                if (gameBoard[startRowIndex][col -1] != '~') {
+                if (gameBoard[startRowIndex][col - 1] != '~') {
                     return true;
                 }
             }
@@ -160,11 +173,73 @@ public class ShipPlacementValidator {
             // Iterate through the rows in the specified range
             for (int row = min; row <= max; row++) {
                 // Check if the cell is occupied
-                if (gameBoard[row][startCol -1] != '~') {
+                if (gameBoard[row][startCol - 1] != '~') {
                     return true;
                 }
             }
         }
         return false; // False if no overlap is found
     }
+
+    /**Checks if the boat placement would be touching another boat.
+     *
+     * @param startRow  The start row coordinate
+     * @param startCol  The start col coordinate
+     * @param endRow    The end row coordinate
+     * @param endCol    The end col coordinate
+     * @param gameBoard The game board to check
+     * @return True if the boat placement is touching another boat; false otherwise.
+     */
+    private static boolean isTouching(char startRow, int startCol, char endRow, int endCol,
+                                      char[][] gameBoard) {
+        int startRowIndex = startRow - 'A';
+        int endRowIndex = endRow - 'A';
+
+        // Plus 1 and minus 1 to include the row or column just before the ship
+        int minRow = Math.min(startRowIndex, endRowIndex) - 1;
+        int maxRow = Math.max(startRowIndex, endRowIndex) + 1;
+        int minCol = Math.min(startCol, endCol) - 1;
+        int maxCol = Math.max(startCol, endCol) + 1;
+
+        // Iterate over the surrounding cells
+        for (int row = Math.max(0, minRow); row <= Math.min(9, maxRow); row++) {
+            for (int col = Math.max(0, minCol); col <= Math.min(9, maxCol); col++) {
+                if (gameBoard[row][col] == 'O') {
+                    return true;
+                }
+            }
+        }
+
+        return false; // False if no touching if found
+    }
+
+    /**
+     * Checks to make sure the length of the coordinates is the same as the required length fot
+     * the current ship.
+     *
+     * @param startRow The starting coordinate for the row
+     * @param startCol The starting coordinate for the col
+     * @param endRow   The ending coordinate for the row
+     * @param endCol   The ending coordinate for the col
+     * @param shipType The ship to be compared to.
+     * @return True of the lengths match; false otherwise
+     */
+    private static boolean isCorrectLength(char startRow, int startCol, char endRow, int endCol,
+                                           ShipType shipType) {
+        // Required length for ship placement
+        int requiredLength = shipType.getLength();
+
+        // Length of coordinates
+        int coordinateLength = -1;
+
+        // Get orientation
+        if (startRow == endRow) { // Horizontal placement
+            coordinateLength = Math.abs(startCol - endCol) + 1; // Plus one to include all the spaces
+        } else { // Vertical placement
+            coordinateLength = Math.abs(startRow - endRow) + 1; // Plus one to include all the
+            // spaces
+        }
+        return requiredLength == coordinateLength;
+    }
+
 }
