@@ -1,17 +1,5 @@
 type: edu
 files:
-  - name: src/battleship/Main.java
-    visible: true
-    text: |
-      package battleship;
-      
-      public class Main {
-      
-          public static void main(String[] args) {
-              System.out.println("Hello World!");
-          }
-      }
-    learner_created: false
   - name: test/Tests.java
     visible: false
     text: |-
@@ -450,6 +438,613 @@ files:
         }
       }
     learner_created: false
+  - name: src/battleship/ship/ShipPlacementValidator.java
+    visible: true
+    text: |
+      package battleship.ship;
+      
+      import battleship.io.input.UserInputHandler;
+      
+      import java.util.ArrayList;
+      import java.util.List;
+      
+      public class ShipPlacementValidator {
+          private static final List<Character> POSSIBLE_ROWS = createPossibleRowOptions();
+          private static final List<Integer> POSSIBLE_COLUMNS = createPossibleColumnOptions();
+      
+      
+          public static boolean isValidCoordinates(String start, String end,
+                                                   ShipType shipType, char[][] gameBoard) {
+              // If the length of the coordinates given are incorrect, return
+              if (!isValidLength(start, end)) {
+                  System.out.println("Error! Coordinates must be between 2-3 characters each");
+                  return false;
+              }
+      
+      
+              // Parse the start and end coordinates
+              char startRow = start.charAt(0);
+              // Gets the numbers that are double digits
+              int startCol = UserInputHandler.parseInt(start.substring(1));
+              char endRow = end.charAt(0);
+              int endCol = UserInputHandler.parseInt(end.substring(1));
+      
+              // Make sure they are letters from 'A' to 'J' and numbers from 1-10
+              if ((!isWithinBounds(startRow, startCol)) || (!isWithinBounds(endRow, endCol))) {
+                  System.out.println("Error! Coordinates must be within the bounds of the game. 'A' to " +
+                          " 'J' and 1-10");
+                  return false;
+              }
+      
+              // Make sure the direction is vertical or horizontal
+              if ((!isHorizontal(startRow, endRow) && (!isVertical(startCol, endCol)))) {
+                  System.out.println("Error! Placement cannot be diagonal");
+                  return false;
+              }
+      
+              // Does not overlap with another boat
+              if (isOverlapping(startRow, startCol, endRow, endCol, gameBoard)) {
+                  System.out.println("Error! Ship placement cannot overlap with another ship");
+                  return false;
+              }
+      
+              // Does not touch another boat
+              if (isTouching(startRow, startCol, endRow, endCol, gameBoard)) {
+                  System.out.println("Error! Ship placement cannot touch another ship");
+                  return false;
+              }
+      
+              // Is the required ship length
+              if (!isCorrectLength(startRow, startCol, endRow, endCol, shipType)) {
+                  System.out.println("Error! Ship must be of length " + shipType.getLength());
+                  return false;
+              }
+              return true;
+          }
+      
+          /**
+           * Creates possible row options from 'A' to 'J'
+           *
+           * @return A List<Character> of chars filled from 'A' to 'J'
+           */
+          private static List<Character> createPossibleRowOptions() {
+              // Possible rows options. 'A' to 'J'
+              List<Character> possibleRows = new ArrayList<>();
+              for (char i = 'A'; i <= 'J'; i++) {
+                  possibleRows.add(i);
+              }
+              return possibleRows;
+          }
+      
+          /**
+           * Creates possible column options from '1' to '10'
+           *
+           * @return A List<Integer> of chars filled from '1' to '10'
+           */
+          private static List<Integer> createPossibleColumnOptions() {
+              // Possible rows options. '1' to '10'
+              List<Integer> possibleColumns = new ArrayList<>();
+              for (int i = 1; i <= 10; i++) {
+                  possibleColumns.add(i);
+              }
+              return possibleColumns;
+          }
+      
+          /**
+           * Makes sure the start and end coordinates are at least two characters in length and no more
+           * than 3 characters in length
+           *
+           * @param start The starting coordinates to check
+           * @param end   The ending coordinates to check
+           * @return True if the start and end are both at least length two but no greater than 3.
+           */
+          public static boolean isValidLength(String start, String end) {
+              return (start != null) && (end != null) &&
+                      (start.length() >= 2) && (end.length() >= 2 &&
+                      (start.length() <= 3) && (end.length() <= 3));
+          }
+      
+          /**
+           * Checks if the row and col provided matches a possible row and column of the game.
+           *
+           * @param row The row to be checked
+           * @param col The column to be checked
+           * @return True if it is within the bounds of the game field; false otherwise.
+           */
+          private static boolean isWithinBounds(char row, int col) {
+              return POSSIBLE_ROWS.contains(row) && POSSIBLE_COLUMNS.contains(col);
+          }
+      
+          /**
+           * Checks to make sure the ship placement is vertical
+           *
+           * @param startCol The starting col coordinates
+           * @param endCol   The ending col coordinates
+           * @return True if the placement is vertical; false otherwise.
+           */
+          private static boolean isVertical(int startCol, int endCol) {
+              return (startCol == endCol);
+      
+          }
+      
+          /**
+           * Checks to make sure the ship placement is horizontal
+           *
+           * @param startRow The starting row coordinates
+           * @param endRow   The ending row coordinates
+           * @return True if the placement is horizontal; false otherwise
+           */
+          private static boolean isHorizontal(char startRow, char endRow) {
+              return (startRow == endRow);
+          }
+      
+          /**
+           * Checks to see if the boat placement is overlapping with another boat.
+           *
+           * @param startRow  The start row coordinate
+           * @param startCol  The start col coordinate
+           * @param endRow    The end row coordinate
+           * @param endCol    The end col coordinate
+           * @param gameBoard The game board to check
+           * @return True if it is overlapping; false otherwise
+           */
+          private static boolean isOverlapping(char startRow, int startCol, char endRow, int endCol,
+                                               char[][] gameBoard) {
+      
+              // Convert row characters to zero-based indices for array access
+              int startRowIndex = startRow - 'A';
+              int endRowIndex = endRow - 'A';
+      
+              // If the placement is horizontal
+              if (isHorizontal(startRow, endRow)) {
+                  // Get the min and max coordinates to ensure the loop works correctly
+                  int min = Math.min(startCol, endCol);
+                  int max = Math.max(startCol, endCol);
+      
+                  // Iterate through the columns in the specified range
+                  for (int col = min; col <= max; col++) {
+                      // Check if the cell is occupied
+                      if (gameBoard[startRowIndex][col - 1] != '~') {
+                          return true;
+                      }
+                  }
+              } else { // Vertical Placement
+                  // Get the min and max coordinates to ensure the loop works correctly
+                  int min = Math.min(startRowIndex, endRowIndex);
+                  int max = Math.max(startRowIndex, endRowIndex);
+      
+                  // Iterate through the rows in the specified range
+                  for (int row = min; row <= max; row++) {
+                      // Check if the cell is occupied
+                      if (gameBoard[row][startCol - 1] != '~') {
+                          return true;
+                      }
+                  }
+              }
+              return false; // False if no overlap is found
+          }
+      
+          /**Checks if the boat placement would be touching another boat.
+           *
+           * @param startRow  The start row coordinate
+           * @param startCol  The start col coordinate
+           * @param endRow    The end row coordinate
+           * @param endCol    The end col coordinate
+           * @param gameBoard The game board to check
+           * @return True if the boat placement is touching another boat; false otherwise.
+           */
+          private static boolean isTouching(char startRow, int startCol, char endRow, int endCol,
+                                            char[][] gameBoard) {
+              int startRowIndex = startRow - 'A';
+              int endRowIndex = endRow - 'A';
+      
+              // Plus 1 and minus 1 to include the row or column just before the ship
+              int minRow = Math.min(startRowIndex, endRowIndex) - 1;
+              int maxRow = Math.max(startRowIndex, endRowIndex) + 1;
+              int minCol = Math.min(startCol, endCol) - 1;
+              int maxCol = Math.max(startCol, endCol) + 1;
+      
+              // Iterate over the surrounding cells
+              for (int row = Math.max(0, minRow); row <= Math.min(9, maxRow); row++) {
+                  for (int col = Math.max(0, minCol); col <= Math.min(9, maxCol); col++) {
+                      if (gameBoard[row][col] == 'O') {
+                          return true;
+                      }
+                  }
+              }
+      
+              return false; // False if no touching if found
+          }
+      
+          /**
+           * Checks to make sure the length of the coordinates is the same as the required length fot
+           * the current ship.
+           *
+           * @param startRow The starting coordinate for the row
+           * @param startCol The starting coordinate for the col
+           * @param endRow   The ending coordinate for the row
+           * @param endCol   The ending coordinate for the col
+           * @param shipType The ship to be compared to.
+           * @return True of the lengths match; false otherwise
+           */
+          private static boolean isCorrectLength(char startRow, int startCol, char endRow, int endCol,
+                                                 ShipType shipType) {
+              // Required length for ship placement
+              int requiredLength = shipType.getLength();
+      
+              // Length of coordinates
+              int coordinateLength = -1;
+      
+              // Get orientation
+              if (startRow == endRow) { // Horizontal placement
+                  coordinateLength = Math.abs(startCol - endCol) + 1; // Plus one to include all the spaces
+              } else { // Vertical placement
+                  coordinateLength = Math.abs(startRow - endRow) + 1; // Plus one to include all the
+                  // spaces
+              }
+              return requiredLength == coordinateLength;
+          }
+      
+      }
+    learner_created: true
+  - name: src/battleship/ship/ShipPlacementHandler.java
+    visible: true
+    text: |
+      package battleship.ship;
+      
+      import java.util.List;
+      
+      public class ShipPlacementHandler {
+      
+          /**
+           * Places the ship on the game screen using the character 'O'
+           *
+           * @param ship The ship to be placed
+           * @param gameScreen The game screen to place the boat on.
+           */
+          public static void placeShip(Ship ship, char[][] gameScreen) {
+              // For each position of the coordinate, add them to the map
+              for (String position : ship.getPositions()) {
+                  int row = position.charAt(0) - 'A';
+                  int col = Integer.parseInt(position.substring(1)) - 1; // Adjusted for 0-based index
+      
+                  // Add them to the game screen
+                  gameScreen[row][col] = 'O';
+              }
+      
+          }
+      
+      
+      }
+    learner_created: true
+  - name: src/battleship/ship/ShipType.java
+    visible: true
+    text: |
+      package battleship.ship;
+      
+      public enum ShipType {
+          AIRCRAFT_CARRIER("Aircraft Carrier", 5),
+          BATTLESHIP("Battleship", 4),
+          SUBMARINE("Submarine", 3),
+          CRUISER("Cruiser", 3),
+          DESTROYER("Destroyer", 2);
+      
+          // INSTANCE VARIABLES
+          private final String name;
+          private final int length;
+      
+          // GETTERS AND SETTERS
+          public String getName() {
+              return name;
+          }
+      
+          public int getLength() {
+              return length;
+          }
+      
+          // CONSTRUCTOR
+          ShipType(String name, int length) {
+              this.name = name;
+              this.length = length;
+          }
+      }
+    learner_created: true
+  - name: src/battleship/gameScreen/CreateGameScreen.java
+    visible: true
+    text: |
+      package battleship.gameScreen;
+      
+      public class CreateGameScreen {
+          // INSTANCE VARIABLES
+          private char[][] gameScreen;
+      
+          // GETTERS AND SETTERS
+      
+      
+          public char[][] getGameScreen() {
+              return gameScreen;
+          }
+      
+          public void setGameScreen(char[][] gameScreen) {
+              this.gameScreen = gameScreen;
+          }
+      
+          // CONSTRUCTORS
+          public CreateGameScreen() {
+              // Row for column and row labels
+              gameScreen = new char[10][10];
+              initialiseGameScreen();
+          }
+      
+          // METHODS
+          private void initialiseGameScreen() {
+              // Add tilde
+              addTilde();
+          }
+      
+          private void addTilde() {
+              for (int row = 0; row < gameScreen.length; row++) {
+                  for (int col = 0; col < gameScreen[row].length; col++) {
+                      gameScreen[row][col] = '~';
+                  }
+              }
+          }
+      
+      
+      
+      
+      }
+    learner_created: true
+  - name: src/battleship/ship/Ship.java
+    visible: true
+    text: |
+      package battleship.ship;
+      
+      import battleship.io.input.UserInputHandler;
+      
+      import java.util.ArrayList;
+      import java.util.List;
+      
+      public class Ship {
+      
+          // INSTANCE VARIABLES
+          private int length;
+          private List<String> positions;
+      
+          // GETTERS AND SETTERS
+          public int getLength() {
+              return length;
+          }
+      
+          public void setLength(int length) {
+              this.length = length;
+          }
+      
+          public List<String> getPositions() {
+              return positions;
+          }
+      
+          public void setPositions(List<String> positions) {
+              this.positions = positions;
+          }
+      
+          // CONSTRUCTOR
+          public Ship(String start, String end) {
+              this.positions = new ArrayList<>();
+              calculatePositions(start, end);
+              this.length = positions.size();
+          }
+      
+      
+          /**
+           * Uses the coordinates provided to calculate all the positions taken up by the boat.
+           *
+           * @param start The starting coordinates for the ship
+           * @param end The ending coordinates for the ship
+           */
+          private void calculatePositions(String start, String end) {
+              // Separate the coordinates.
+              char startRow = start.charAt(0);
+              int startCol = UserInputHandler.parseInt(start.substring(1));
+              char endRow = end.charAt(0);
+              int endCol = UserInputHandler.parseInt(end.substring(1));
+      
+              // Check Orientation
+              if (startRow == endRow) { // Horizontal placement
+                  // Find the min and max coordinates to the loop runs correctly
+                  int min = Math.min(startCol, endCol);
+                  int max = Math.max(startCol, endCol);
+      
+                  for (int col = min; col <= max; col++) {
+                      // Add empty string to concatenate
+                      positions.add("" + startRow + col);
+                  }
+              } else { // Vertical placement
+                  // Find the min and max coordinates to the loop runs correctly
+                  char min = (char) Math.min(startRow, endRow);
+                  char max = (char) Math.max(startRow, endRow);
+      
+                  for (char row = min; row <= max; row++) {
+                      positions.add("" + row + startCol);
+                  }
+              }
+          }
+      
+      
+      }
+    learner_created: true
+  - name: src/battleship/io/output/DisplayGameScreen.java
+    visible: true
+    text: "package battleship.io.output;\n\npublic class DisplayGameScreen {\n\n\n \
+    \   /**\n     * Displays the game screen in the terminal/\n     *\n     * @param\
+    \ gameScreen The current game screen to be printed.\n     */\n    public static\
+    \ void displayGameScreen(char[][] gameScreen) {\n        System.out.println(createPrintableGameScreen(gameScreen));\n\
+    \    }\n\n    /**\n     * Create a string of the current game screen. Row labels\
+    \ of 'A' to 'J' are added and column\n     * labels of 1-10 are added also.\n\
+    \     *\n     * @param gameScreen The game screen to be adjusted.\n     * @return\
+    \ The game screen as a string\n     */\n    private static String createPrintableGameScreen(char[][]\
+    \ gameScreen) {\n        StringBuilder gameScreenPrint = new StringBuilder();\n\
+    \n        gameScreenPrint.append(\"  \"); // Top left corner is empty with two\
+    \ spaces\n\n        // Append col labels\n        for (int col = 1; col <= gameScreen[0].length;\
+    \ col++) {\n            gameScreenPrint.append(col).append(\" \");\n        }\n\
+    \        gameScreenPrint.append(\"\\n\");\n        \n        // Append Row labels\
+    \ and Row information\n        for (int row = 0; row < gameScreen.length; row++)\
+    \ {\n            // Add the Row labels\n            gameScreenPrint.append((char)\
+    \ ('A' + row)).append(\" \");\n            for (int col = 0; col < gameScreen[row].length;\
+    \ col++) {\n                gameScreenPrint.append(gameScreen[row][col]).append(\"\
+    \ \");\n            }\n            gameScreenPrint.append(\"\\n\");\n        }\n\
+    \        return gameScreenPrint.toString();\n    }\n}\n"
+    learner_created: true
+  - name: src/battleship/main/Runner.java
+    visible: true
+    text: |
+      package battleship.main;
+      
+      import battleship.game.PlayGame;
+      
+      public class Runner {
+      
+          public static void main(String[] args) {
+              PlayGame playGame = new PlayGame();
+              playGame.playGame();
+          }
+      }
+    learner_created: true
+  - name: src/battleship/game/PlayGame.java
+    visible: true
+    text: |
+      package battleship.game;
+      
+      import battleship.gameScreen.CreateGameScreen;
+      import battleship.io.input.UserInputHandler;
+      import battleship.io.input.UserInputValidator;
+      import battleship.io.output.DisplayGameScreen;
+      import battleship.ship.Ship;
+      import battleship.ship.ShipPlacementHandler;
+      import battleship.ship.ShipPlacementValidator;
+      import battleship.ship.ShipType;
+      
+      public class PlayGame {
+      
+          public void playGame() {
+              // Generates a blank game field
+              CreateGameScreen gameScreen = new CreateGameScreen();
+      
+              // Displays the blank≠ game field
+              DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+      
+              // Loops through each ship type
+              for (ShipType shipType : ShipType.values()) {
+                  // A flag keep track if the ship has been placed
+                  boolean validPlacement = false;
+                  while (!validPlacement) {
+      
+                      // Prompt the user to enter the coordinates for the current ship
+                      System.out.println("Enter the coordinates of the " + shipType.getName() + " (" + shipType.getLength() + " cells): ");
+                      String userInput = UserInputHandler.getUserString();
+      
+                      // User input must not be empty or null
+                      if (UserInputValidator.isNullOrEmpty(userInput)) {
+                          System.out.println("Error! Coordinates must be provided.");
+                          return;
+                      }
+      
+                      // Separate the coordinates
+                      String[] coordinates = userInput.split(" ");
+      
+                      // Must be only two coordinates given
+                      if (coordinates.length == 2) {
+      
+                          // Start and end coordinates for ship placement
+                          String start = coordinates[0];
+                          String end = coordinates[1];
+      
+                          // Validate coordinates
+                          if (ShipPlacementValidator.isValidCoordinates(start, end,
+                           shipType, gameScreen.getGameScreen())) {
+                              // Create the ship to be placed
+                              Ship ship = new Ship(start, end);
+                              ShipPlacementHandler.placeShip(ship, gameScreen.getGameScreen());
+      
+                              // Update the valid placement to true
+                              validPlacement = true;
+      
+                              // Displays the blank game field
+                              DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+      
+                          }
+      
+                      } else {
+                          System.out.println("Error: Invalid input format. Please enter two coordinates.");
+                      }
+      
+                  }
+      
+      
+      
+              }
+          }
+      }
+    learner_created: true
+  - name: src/battleship/io/input/UserInputHandler.java
+    visible: true
+    text: |
+      package battleship.io.input;
+      
+      import java.util.InputMismatchException;
+      import java.util.Scanner;
+      
+      public class UserInputHandler {
+          private static final Scanner SCANNER = new Scanner(System.in);
+      
+          /**
+           * Gets the input from the user as a String
+           * @return The users input as a string.
+           */
+          public static String getUserString() {
+              return SCANNER.nextLine();
+          }
+      
+          /**
+           * Ensures the input is an int
+           * @param input The String to be parsed to an int
+           * @return The int if it can be parsed or -1.
+           */
+          public static int parseInt(String input) {
+              int integer = -1;
+              try {
+                  integer = Integer.parseInt(input);
+              }catch (NumberFormatException e) {
+                  System.out.println("Must be a number from 1-10");
+              }
+              return integer;
+          }
+      }
+    learner_created: true
+  - name: src/battleship/io/input/UserInputValidator.java
+    visible: true
+    text: |
+      package battleship.io.input;
+      
+      public class UserInputValidator {
+      
+          /**
+           * Checks if the input is null or empty
+           *
+           * @param input The input to be checked
+           * @return True if it is null or empty; false otherwise
+           */
+          public static boolean isNullOrEmpty(String input) {
+              return input == null || input == "";
+          }
+      }
+    learner_created: true
+  - name: src/battleship/validation/BaseValidation.java
+    visible: true
+    learner_created: true
+  - name: src/battleship/shooting/ShootingValidator.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/35306#comment
 status: Unchecked
 record: -1

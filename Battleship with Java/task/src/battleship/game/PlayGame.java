@@ -8,16 +8,29 @@ import battleship.ship.Ship;
 import battleship.ship.ShipPlacementHandler;
 import battleship.ship.ShipPlacementValidator;
 import battleship.ship.ShipType;
+import battleship.shooting.ShootingValidator;
 
 public class PlayGame {
 
-    public void playGame() {
-        // Generates a blank game field
-        CreateGameScreen gameScreen = new CreateGameScreen();
+    private CreateGameScreen gameScreen;
 
+    public PlayGame() {
+        // Generates a blank game field
+        this.gameScreen = new CreateGameScreen();
+    }
+
+    public void playGame() {
         // Displays the blank≠ game field
         DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
 
+        // User will place all ships in a valid location.
+        placeShips();
+
+        System.out.println("Ship placement done next is taking shot");
+        ShootingValidator.test();
+    }
+
+    private void placeShips() {
         // Loops through each ship type
         for (ShipType shipType : ShipType.values()) {
             // A flag keep track if the ship has been placed
@@ -46,7 +59,7 @@ public class PlayGame {
 
                     // Validate coordinates
                     if (ShipPlacementValidator.isValidCoordinates(start, end,
-                     shipType, gameScreen.getGameScreen())) {
+                            shipType, gameScreen.getGameScreen())) {
                         // Create the ship to be placed
                         Ship ship = new Ship(start, end);
                         ShipPlacementHandler.placeShip(ship, gameScreen.getGameScreen());
@@ -64,8 +77,6 @@ public class PlayGame {
                 }
 
             }
-
-
 
         }
     }

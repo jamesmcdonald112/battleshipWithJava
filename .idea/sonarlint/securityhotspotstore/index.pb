@@ -23,3 +23,7 @@ y
 IBattleship with Java/task/src/battleship/ship/ShipPlacementValidator.java,2/8/2863981fc10270c646c23e539ab22dd190ad8740
 g
 7Battleship with Java/task/src/battleship/ship/Ship.java,b/7/b7e247aa410ed333c0194b3f7afcca6f306c3dbd
+k
+;Battleship with Java/task/src/battleship/ship/ShipType.java,b/0/b0be33d950e22ae1b17173c46e3e85a1da8f303b
+w
+GBattleship with Java/task/src/battleship/ship/ShipPlacementHandler.java,c/6/c61467cbc4bdd2e0fdee9f26a026ac19a620624b
