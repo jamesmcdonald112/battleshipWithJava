@@ -1045,6 +1045,12 @@ files:
   - name: src/battleship/shooting/ShootingValidator.java
     visible: true
     learner_created: true
+  - name: src/battleship/shooting/UpdateShot.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/35306#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 27 Jul 2024 13:05:50 UTC"
 record: -1

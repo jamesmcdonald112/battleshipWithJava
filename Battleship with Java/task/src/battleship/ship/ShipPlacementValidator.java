@@ -8,6 +8,19 @@ import java.util.List;
 
 public class ShipPlacementValidator extends BaseValidation {
 
+    /**
+     * Holds the logic to make sure the ship placement follows the rules of the game. The
+     * coordinates are checked to make sure they are within the bounds of the game. These
+     * coordinates are then checked to ensure the boat placement is either vertical or
+     * horizontal, it is then checked that the boat would not be touching or overlapping with
+     * another boat. Finally, the boat is checked to make sure it is the required length.
+     *
+     * @param start The starting coordinate
+     * @param end The ending coordinate
+     * @param shipType The ship type to be placed
+     * @param gameBoard The game board to be referenced.
+     * @return True if it is a valid placement; false otherwise.
+     */
     public static boolean isValidCoordinates(String start, String end,
                                              ShipType shipType, char[][] gameBoard) {
         // If the length of the coordinates given are incorrect, return

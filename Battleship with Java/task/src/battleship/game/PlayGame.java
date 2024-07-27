@@ -9,6 +9,7 @@ import battleship.ship.ShipPlacementHandler;
 import battleship.ship.ShipPlacementValidator;
 import battleship.ship.ShipType;
 import battleship.shooting.ShootingValidator;
+import battleship.shooting.UpdateShot;
 
 public class PlayGame {
 
@@ -26,8 +27,10 @@ public class PlayGame {
         // User will place all ships in a valid location.
         placeShips();
 
-        System.out.println("Ship placement done next is taking shot");
-        ShootingValidator.test();
+        System.out.println("The game starts!");
+
+        // User is promoted to take a shot
+        takeShot();
     }
 
     private void placeShips() {
@@ -78,6 +81,43 @@ public class PlayGame {
 
             }
 
+        }
+    }
+
+    private void takeShot() {
+        boolean validShot = false;
+        while (!validShot) {
+            System.out.println("Take a shot!");
+
+            String coordinate = UserInputHandler.getUserString();
+
+            // User input must not be empty or null
+            if (UserInputValidator.isNullOrEmpty(coordinate)) {
+                System.out.println("Error! Coordinates must be provided.");
+                return;
+            }
+
+
+            // Must be only two coordinates given
+            if (coordinate.length() > 1) {
+
+                // Validate coordinates
+                if (ShootingValidator.isValidShot(coordinate, gameScreen.getGameScreen())) {
+
+                    // Update the game screen with the correct symbol
+                    UpdateShot.updateShot(coordinate, gameScreen.getGameScreen());
+
+                    // Update the valid shot flag
+                    validShot = true;
+
+                    // Displays the blank game field
+                    DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+
+                }
+
+            } else {
+                System.out.println("Error: Invalid input format. Please enter one coordinates.");
+            }
         }
     }
 }
