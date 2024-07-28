@@ -27,3 +27,19 @@ k
 ;Battleship with Java/task/src/battleship/ship/ShipType.java,b/0/b0be33d950e22ae1b17173c46e3e85a1da8f303b
 w
 GBattleship with Java/task/src/battleship/ship/ShipPlacementHandler.java,c/6/c61467cbc4bdd2e0fdee9f26a026ac19a620624b
+h
+8Topics/Debugging techniques/Find the error/src/Main.java,d/2/d209808ee6c95ad983ac5f718e65722656a20d06
+q
+ABattleship with Java/task/src/battleship/shooting/UpdateShot.java,c/5/c5b3315978218cada3197558a2d26596ba0e7681
+w
+GBattleship with Java/task/src/battleship/validation/BaseValidation.java,3/0/30d392928067587c2267c85bcdd27930211f5b1f
+x
+HBattleship with Java/task/src/battleship/shooting/ShootingValidator.java,5/2/52e01e385863787403976ed19327c2967eeb198a
+f
+6Topics/Fields and methods in enum/Theory/src/Task.java,a/8/a87cb1ea3c44b88f685b934df8770f4bcc7d0482
+g
+7Topics/Multiple conditions  switch/Theory/src/Task.java,2/8/2854e19e7bc603f82184ce2bda2bc1685f9244bd
+o
+?Topics/Fields and methods in enum/System of units/src/Main.java,1/c/1c394b9f2f88f6cf069b07efd71bf581ed0fe2ed
+m
+=Topics/Fields and methods in enum/Robot control/src/Main.java,4/6/4611fef1402c277a4bc4450d48ddd93dd05fca5c

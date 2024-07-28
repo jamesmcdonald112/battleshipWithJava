@@ -14,10 +14,12 @@ import battleship.shooting.UpdateShot;
 public class PlayGame {
 
     private CreateGameScreen gameScreen;
+    private CreateGameScreen fogOfWar;
 
     public PlayGame() {
         // Generates a blank game field
         this.gameScreen = new CreateGameScreen();
+        this.fogOfWar = new CreateGameScreen();
     }
 
     public void playGame() {
@@ -85,6 +87,9 @@ public class PlayGame {
     }
 
     private void takeShot() {
+        // Displays the blank game screen
+        DisplayGameScreen.displayGameScreen(fogOfWar.getGameScreen());
+
         boolean validShot = false;
         while (!validShot) {
             System.out.println("Take a shot!");
@@ -110,9 +115,11 @@ public class PlayGame {
                     // Update the valid shot flag
                     validShot = true;
 
-                    // Displays the blank game field
+                    // Displays the updated game screen
                     DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
 
+                    // Displays the blank game screen
+                    DisplayGameScreen.displayGameScreen(fogOfWar.getGameScreen());
                 }
 
             } else {
