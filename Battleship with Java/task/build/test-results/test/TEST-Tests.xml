@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-28T19:44:24" hostname="James-MacBookPro-New.local" time="0.142">
+<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-28T20:42:56" hostname="James-MacBookPro-New.local" time="0.227">
   <properties/>
-  <testcase name="start" classname="Tests" time="0.142"/>
+  <testcase name="start" classname="Tests" time="0.227"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
   1 2 3 4 5 6 7 8 9 10 
@@ -110,21 +110,9 @@ J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 Take a shot!
 > A1
-You hit a ship!
+You hit a ship! Try again: 
   1 2 3 4 5 6 7 8 9 10 
 A X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ ~ ~ ~ ~ O ~ 
-C O ~ ~ ~ ~ ~ ~ ~ O ~ 
-D O ~ ~ ~ ~ ~ ~ ~ O ~ 
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-F ~ ~ O O O O O ~ ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ O ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ O ~ ~ ~ ~ ~ O O O 
-
-  1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -135,6 +123,372 @@ H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
+Take a shot!
+> A2
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> B1
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> C1
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> D1
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> E4
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ M ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> B9
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ M ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> C9
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ M ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> D9
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> E9
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F3
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F4
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F5
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F6
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F7
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F10
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> G8
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> G5
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> H2
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> I2
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> J2
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> J6
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ X ~ ~ ~ M ~ ~ ~ ~ 
+
+Take a shot!
+> J8
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ X ~ ~ ~ M ~ X ~ ~ 
+
+Take a shot!
+> J9
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ X ~ ~ ~ M ~ X X ~ 
+
+Take a shot!
+> J10
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ X ~ 
+C X ~ ~ ~ ~ ~ ~ ~ X ~ 
+D X ~ ~ ~ ~ ~ ~ ~ X ~ 
+E ~ ~ ~ M ~ ~ ~ ~ M ~ 
+F ~ ~ X X X X X ~ ~ M 
+G ~ ~ ~ ~ M ~ ~ M ~ ~ 
+H ~ M ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ X ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ X ~ ~ ~ M ~ X X X 
+
+You sank the last ship. You won. Congratulations!
 ?[1;31m
 Start test 2?[0m
   1 2 3 4 5 6 7 8 9 10 
@@ -242,28 +596,10 @@ I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
 Take a shot!
-> M1
-Error! Coordinate must be within the bounds of the map
-Take a shot!
-> A11
-Error! Coordinate must be within the bounds of the map
-Take a shot!
-> E4
-You missed!
+> A1
+You hit a ship! Try again: 
   1 2 3 4 5 6 7 8 9 10 
-A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ O ~ ~ ~ ~ ~ 
-C O ~ ~ ~ O ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ M ~ ~ ~ O ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H O O O ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-  1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+A X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -274,10 +610,11 @@ H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
-?[1;31m
-Start test 3?[0m
+Take a shot!
+> A2
+You missed. Try again: 
   1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -288,11 +625,12 @@ H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
-Enter the coordinates of the Aircraft Carrier (5 cells): 
-> J3 J7
+Take a shot!
+> B1
+You hit a ship! Try again: 
   1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
@@ -300,113 +638,405 @@ F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
-Enter the coordinates of the Battleship (4 cells): 
-> C8 B8
-Error! Ship must be of length 4
-Enter the coordinates of the Battleship (4 cells): 
-> C8 F8
+Take a shot!
+> C1
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
   1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-Enter the coordinates of the Submarine (3 cells): 
-> A1 C2
-Error! Placement cannot be diagonal
-Enter the coordinates of the Submarine (3 cells): 
-> A1 C1
-  1 2 3 4 5 6 7 8 9 10 
-A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C O ~ ~ ~ ~ ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-Enter the coordinates of the Cruiser (3 cells): 
-> H1 H3
-  1 2 3 4 5 6 7 8 9 10 
-A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C O ~ ~ ~ ~ ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H O O O ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-Enter the coordinates of the Destroyer (2 cells): 
-> G2 E2
-Error! Ship placement cannot touch another ship
-Enter the coordinates of the Destroyer (2 cells): 
-> E5 F5
-  1 2 3 4 5 6 7 8 9 10 
-A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C O ~ ~ ~ ~ ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ ~ O ~ ~ O ~ ~ 
-F ~ ~ ~ ~ O ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H O O O ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-The game starts!
-  1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> D1
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F5
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> B5
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ ~ X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> B4
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> C5
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> H8
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> F8
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> G8
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
 Take a shot!
 > E8
-You hit a ship!
+You hit a ship! Try again: 
   1 2 3 4 5 6 7 8 9 10 
-A O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B O ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C O ~ ~ ~ ~ ~ ~ O ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ O ~ ~ 
-E ~ ~ ~ ~ O ~ ~ X ~ ~ 
-F ~ ~ ~ ~ O ~ ~ O ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H O O O ~ ~ ~ ~ ~ ~ ~ 
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-J ~ ~ O O O O O ~ ~ ~ 
-
-  1 2 3 4 5 6 7 8 9 10 
-A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 
+Take a shot!
+> D8
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ ~ ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> C8
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> D8
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> I9
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> H1
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X ~ ~ ~ ~ ~ ~ M ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> I1
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X ~ ~ ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> H2
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X ~ ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> H3
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> E2
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ ~ M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> I8
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+Take a shot!
+> J7
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ ~ ~ ~ X ~ ~ ~ 
+
+Take a shot!
+> J8
+You missed. Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ ~ ~ ~ X M ~ ~ 
+
+Take a shot!
+> J6
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ ~ ~ X X M ~ ~ 
+
+Take a shot!
+> J5
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ ~ X X X M ~ ~ 
+
+Take a shot!
+> J4
+You hit a ship! Try again: 
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ ~ X X X X M ~ ~ 
+
+Take a shot!
+> J3
+You hit a ship! Try again: 
+You sank a ship! Specify a new target:
+  1 2 3 4 5 6 7 8 9 10 
+A X M ~ ~ ~ ~ ~ ~ ~ ~ 
+B X ~ ~ M X ~ ~ ~ ~ ~ 
+C X ~ ~ ~ X ~ ~ X ~ ~ 
+D M ~ ~ ~ ~ ~ ~ X ~ ~ 
+E ~ M ~ ~ ~ ~ ~ X ~ ~ 
+F ~ ~ ~ ~ M ~ ~ X ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ M ~ ~ 
+H X X X ~ ~ ~ ~ M ~ ~ 
+I M ~ ~ ~ ~ ~ ~ M M ~ 
+J ~ ~ X X X X X M ~ ~ 
+
+You sank the last ship. You won. Congratulations!
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

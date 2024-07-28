@@ -29,7 +29,6 @@ public class ShipPlacementValidator extends BaseValidation {
             return false;
         }
 
-
         // Parse the start and end coordinates
         char startRow = start.charAt(0);
         // Gets the numbers that are double digits

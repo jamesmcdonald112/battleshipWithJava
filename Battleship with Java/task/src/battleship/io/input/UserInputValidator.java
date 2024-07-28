@@ -9,6 +9,6 @@ public class UserInputValidator {
      * @return True if it is null or empty; false otherwise
      */
     public static boolean isNullOrEmpty(String input) {
-        return input == null || input == "";
+        return input == null || input.equals("");
     }
 }

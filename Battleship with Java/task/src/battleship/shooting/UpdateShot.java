@@ -10,17 +10,17 @@ public class UpdateShot {
      * @param coordinate The coordinates of the shot
      * @param gameScreen The game screen to update
      */
-    public static void updateShot(String coordinate, char[][] gameScreen) {
+    public static void updateShot(String coordinate, char[][] gameScreen, char[][] fogOfWarScreen) {
         int row = coordinate.charAt(0) - 'A';
         int col = UserInputHandler.parseInt(coordinate.substring(1)) - 1;
 
         // If there is a boat at the coordinate, place an 'X'
         if (gameScreen[row][col] == 'O') {
-            gameScreen[row][col] = 'X';
-            System.out.println("You hit a ship!");
+            fogOfWarScreen[row][col] = 'X';
+            System.out.println("You hit a ship! Try again: ");
         } else { // Place M for a miss
-            gameScreen[row][col] = 'M';
-            System.out.println("You missed!");
+            fogOfWarScreen[row][col] = 'M';
+            System.out.println("You missed. Try again: ");
         }
     }
 }

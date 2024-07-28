@@ -18,10 +18,10 @@ public class ShootingValidator extends BaseValidation {
             return false;
         }
 
-        if (isHit(coordinate, gameScreen)) {
-            System.out.println("Error! Coordinate has previously been selected");
-            return false;
-        }
+//        if (isHit(coordinate, gameScreen)) {
+//            System.out.println("Error! Coordinate has previously been selected");
+//            return false;
+//        }
         return true;
     }
 
