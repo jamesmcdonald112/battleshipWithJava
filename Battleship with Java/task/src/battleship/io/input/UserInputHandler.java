@@ -1,6 +1,6 @@
 package battleship.io.input;
 
-import java.util.InputMismatchException;
+import javax.swing.plaf.synth.SynthColorChooserUI;
 import java.util.Scanner;
 
 public class UserInputHandler {
@@ -27,5 +27,10 @@ public class UserInputHandler {
             System.out.println("Must be a number from 1-10");
         }
         return integer;
+    }
+
+    public static void promptForEnter() {
+        System.out.println("Press Enter and pass the move to another player");
+        SCANNER.nextLine();
     }
 }

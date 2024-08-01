@@ -1,3 +1,8 @@
 
+N
+java:S1172"1Remove this unused method parameter "gameScreen".(Ÿâ§8ñÒ×2
+X	java:S125"<This block of commented-out lines of code should be removed.(²Á»¿8ñÒ×2
 ^
 java:S1126*"AReplace this if-then-else statement by a single return statement.(ÊàÇ¶8ìÒŸ¢2
+L
+java:S11448"*Remove this unused private "isHit" method.(“’™Íÿÿÿÿÿ8ŸñÒ×2

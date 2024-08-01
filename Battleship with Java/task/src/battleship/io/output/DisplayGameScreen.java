@@ -13,6 +13,19 @@ public class DisplayGameScreen {
     }
 
     /**
+     * Displays the game screen and fog of war screen in the terminal/
+     *
+     * @param gameScreen The current game screen to be printed.
+     * @param fogOfWar The current fog of war screen to be printed.
+     */
+    public static void displayGameScreenAndFogOfWar(char[][] fogOfWar, char[][] gameScreen) {
+        System.out.println(createPrintableGameScreen(fogOfWar));
+        System.out.println("---------------------");
+        System.out.println(createPrintableGameScreen(gameScreen));
+
+    }
+
+    /**
      * Create a string of the current game screen. Row labels of 'A' to 'J' are added and column
      * labels of 1-10 are added also.
      *

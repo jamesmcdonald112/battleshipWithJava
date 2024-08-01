@@ -14,13 +14,18 @@ public class UpdateShot {
         int row = coordinate.charAt(0) - 'A';
         int col = UserInputHandler.parseInt(coordinate.substring(1)) - 1;
 
-        // If there is a boat at the coordinate, place an 'X'
-        if (gameScreen[row][col] == 'O') {
+        // Check if the position is already hit
+        if (gameScreen[row][col] == 'X') {
+            // Do nothing, it's already hit
             fogOfWarScreen[row][col] = 'X';
-            System.out.println("You hit a ship! Try again: ");
-        } else { // Place M for a miss
+        } else if (gameScreen[row][col] == 'O') {
+            // Hit a ship
+            gameScreen[row][col] = 'X';
+            fogOfWarScreen[row][col] = 'X';
+        } else {
+            // Miss
+            gameScreen[row][col] = 'M';
             fogOfWarScreen[row][col] = 'M';
-            System.out.println("You missed. Try again: ");
         }
     }
 }

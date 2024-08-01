@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Topics-Adding_annotations-Creating_a_HelloWorld_class_and_invoking_its_method:main" external.linked.project.path="$MODULE_DIR$/../../../../../Topics/Adding annotations/Creating a HelloWorld class and invoking its method" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="Battleship with Java" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/Creating a HelloWorld class and invoking its method/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/Creating a HelloWorld class and invoking its method/src">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/Creating a HelloWorld class and invoking its method/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="2e171549-d9d4-4994-a723-4222c865ce13" />
+  </component>
+</module>

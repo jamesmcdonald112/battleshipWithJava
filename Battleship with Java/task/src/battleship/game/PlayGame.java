@@ -1,58 +1,74 @@
 package battleship.game;
 
-import battleship.gameScreen.CreateGameScreen;
 import battleship.io.input.UserInputHandler;
 import battleship.io.input.UserInputValidator;
 import battleship.io.output.DisplayGameScreen;
-import battleship.ship.Ship;
-import battleship.ship.ShipPlacementHandler;
-import battleship.ship.ShipPlacementValidator;
-import battleship.ship.ShipType;
+import battleship.player.Player;
+import battleship.ship.*;
 import battleship.shooting.ShootingValidator;
 import battleship.shooting.UpdateShot;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PlayGame {
+    // INSTANCE VARIABLES
+    private Player player1;
+    private Player player2;
+    private boolean isPlayer1Turn;
 
-    private CreateGameScreen gameScreen;
-    private CreateGameScreen fogOfWar;
-    private List<Ship> listOfShips;
-
+    // CONSTRUCTOR
     public PlayGame() {
-        // Generates a blank game field
-        this.gameScreen = new CreateGameScreen();
-        this.fogOfWar = new CreateGameScreen();
-        this.listOfShips = new ArrayList<>();
+        this.player1 = new Player();
+        this.player2 = new Player();
+        this.isPlayer1Turn = true;
     }
 
     public void playGame() {
-        // Displays the blank≠ game field
-        DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+        // PLAYER 1 - SHIP PLACEMENT
+        System.out.println("Player 1, place your ships on the game field");
 
-        // User will place all ships in a valid location.
-        placeShips();
+        // Displays the blank game field
+        DisplayGameScreen.displayGameScreen(player1.getGameScreenArray());
 
-        System.out.println("The game starts!");
+        // Player 1 will place all ships in a valid location.
+        placeShips(player1);
 
-        // Displays the blank game screen
-        DisplayGameScreen.displayGameScreen(fogOfWar.getGameScreen());
+        // Prompts the user to press enter
+        UserInputHandler.promptForEnter();
+
+        // PLAYER 2 - SHIP PLACEMENT
+        System.out.println("Player 2, place your ships on the game field");
+
+        // Displays the blank game field
+        DisplayGameScreen.displayGameScreen(player2.getGameScreenArray());
+
+        // Player 2 will place all ships in a valid location.
+        placeShips(player2);
 
         // While all ships are not sunk
-        while (!allShipsSunk()) {
-            // User is promoted to take a shot
-            takeShot();
+        boolean running = true;
+        while (running) {
+            // Prompts the user to press enter
+            UserInputHandler.promptForEnter();
+            if (isPlayer1Turn) {
+                // Displays the current game screen and fog of war for the user.
+                DisplayGameScreen.displayGameScreenAndFogOfWar(player1.getFogOfWarArray(),
+                        player1.getGameScreenArray());
+                takeShot(player1, player2);
+            } else {
+                DisplayGameScreen.displayGameScreenAndFogOfWar(player2.getFogOfWarArray(),
+                        player2.getGameScreenArray());
+                takeShot(player2, player1);
+            }
 
-            // Displays the blank game screen
-            DisplayGameScreen.displayGameScreen(fogOfWar.getGameScreen());
+            if (player1.allShipsSunk() || player2.allShipsSunk()) {
+                running = false;
+            } else {
+                isPlayer1Turn = !isPlayer1Turn;
+            }
         }
-
-        // All ships sank
         System.out.println("You sank the last ship. You won. Congratulations!");
     }
 
-    private void placeShips() {
+    private void placeShips(Player player) {
         // Loops through each ship type
         for (ShipType shipType : ShipType.values()) {
             // A flag keep track if the ship has been placed
@@ -81,19 +97,19 @@ public class PlayGame {
 
                     // Validate coordinates
                     if (ShipPlacementValidator.isValidCoordinates(start, end,
-                            shipType, gameScreen.getGameScreen())) {
+                            shipType, player.getGameScreenArray())) {
                         // Create the ship to be placed
                         Ship ship = new Ship(start, end);
-                        ShipPlacementHandler.placeShip(ship, gameScreen.getGameScreen());
+                        ShipPlacementHandler.placeShip(ship, player.getGameScreenArray());
 
                         // Add the ship to the list of ships
-                        listOfShips.add(ship);
+                        player.placeShip(ship);
 
                         // Update the valid placement to true
                         validPlacement = true;
 
                         // Displays the blank game field
-                        DisplayGameScreen.displayGameScreen(gameScreen.getGameScreen());
+                        DisplayGameScreen.displayGameScreen(player.getGameScreenArray());
 
                     }
 
@@ -106,7 +122,7 @@ public class PlayGame {
         }
     }
 
-    private void takeShot() {
+    private void takeShot(Player shooter, Player opponent) {
         boolean validShot = false;
         while (!validShot) {
             System.out.println("Take a shot!");
@@ -119,59 +135,34 @@ public class PlayGame {
                 continue; // Prompt again
             }
 
-
-            // Must be only two coordinates given
+            // Must be only one coordinate given
             if (coordinate.length() > 1) {
-
                 // Validate coordinates
-                if (ShootingValidator.isValidShot(coordinate, gameScreen.getGameScreen())) {
-
+                if (ShootingValidator.isValidShot(coordinate, opponent.getGameScreenArray())) {
                     // Update the game screen with the correct symbol
-                    UpdateShot.updateShot(coordinate, gameScreen.getGameScreen(),
-                            fogOfWar.getGameScreen());
+                    UpdateShot.updateShot(coordinate, opponent.getGameScreenArray(), shooter.getFogOfWarArray());
 
-                    Ship hitShip = findHitShip(coordinate);
-                    if (hitShip != null && isShipSunk(hitShip)) {
-                        System.out.println("You sank a ship! Specify a new target:");
+                    Ship hitShip = ShipSunkHandler.findHitShip(coordinate, opponent.getShips());
+                    if (hitShip != null) {
+                        if (ShipSunkHandler.isShipSunk(hitShip, opponent.getGameScreen())) {
+                            if (opponent.allShipsSunk()) {
+                                System.out.println("You sank the last ship. You won. Congratulations!");
+                                System.exit(0); // Exit the program
+                            }
+                            System.out.println("You sank a ship! Specify a new target:");
+                        } else {
+                            System.out.println("You hit a ship!");
+                        }
+                    } else {
+                        System.out.println("You missed.");
                     }
 
                     // Update the valid shot flag
                     validShot = true;
                 }
-
             } else {
-                System.out.println("Error: Invalid input format. Please enter one coordinates.");
+                System.out.println("Error: Invalid input format. Please enter one coordinate.");
             }
         }
-    }
-
-    private boolean allShipsSunk() {
-        for (Ship ship : listOfShips) {
-            if (!isShipSunk(ship)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean isShipSunk(Ship ship) {
-        for (String position : ship.getPositions()) {
-            int row = position.charAt(0) - 'A';
-            int col = UserInputHandler.parseInt(position.substring(1)) - 1;
-
-            if (fogOfWar.getGameScreen()[row][col] != 'X') {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private Ship findHitShip(String coordinate) {
-        for (Ship ship : listOfShips) {
-            if (ship.getPositions().contains(coordinate)) {
-                return ship;
-            }
-        }
-        return null;
     }
 }

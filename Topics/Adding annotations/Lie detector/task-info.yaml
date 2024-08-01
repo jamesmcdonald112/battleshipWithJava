@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: "Some annotations can mark classes, methods, fields, and parameters."
+  - text: The @ character indicates to the compiler that this is an annotation.
+  - text: Java has several built-in annotations.
+  - text: "Any annotation can mark classes, methods, and fields."
+files:
+  - name: src/Task.java
+    visible: true
+    text: |
+      // You can experiment here, it won’t be checked
+      
+      public class Task {
+        public static void main(String[] args) {
+          // put your code here
+        }
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/2580#comment
+status: Solved
+record: -1
+local_check: false

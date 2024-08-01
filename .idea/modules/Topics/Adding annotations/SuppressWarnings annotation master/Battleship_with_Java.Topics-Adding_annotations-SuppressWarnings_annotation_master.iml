@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Topics-Adding_annotations-SuppressWarnings_annotation_master" external.linked.project.path="$MODULE_DIR$/../../../../../Topics/Adding annotations/SuppressWarnings annotation master" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="Battleship with Java" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/SuppressWarnings annotation master">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/SuppressWarnings annotation master/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/SuppressWarnings annotation master/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/Adding annotations/SuppressWarnings annotation master/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="e7236124-17e4-4248-90ab-6ab67ffacbcb" />
+  </component>
+</module>
