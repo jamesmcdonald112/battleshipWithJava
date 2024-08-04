@@ -15,113 +15,119 @@ public class PlayGame {
     private boolean isPlayer1Turn;
 
     // CONSTRUCTOR
+
+    /**
+     * Constructor to initialise the PlayGame instance.
+     * It creates two players and sets the initial turn to Player 1.
+     */
     public PlayGame() {
-        this.player1 = new Player();
-        this.player2 = new Player();
+        this.player1 = new Player("Player 1");
+        this.player2 = new Player("Player 2");
         this.isPlayer1Turn = true;
     }
 
+    /**
+     * Main method to start the game.
+     * It handles the setup of both players and manages the game loop until one player wins.
+     */
     public void playGame() {
-        // PLAYER 1 - SHIP PLACEMENT
-        System.out.println("Player 1, place your ships on the game field");
+        // Set up Player 1
+        setupPlayer(player1);
 
-        // Displays the blank game field
-        DisplayGameScreen.displayGameScreen(player1.getGameScreenArray());
-
-        // Player 1 will place all ships in a valid location.
-        placeShips(player1);
-
-        // Prompts the user to press enter
+        // Prompt the user to press Enter
         UserInputHandler.promptForEnter();
 
-        // PLAYER 2 - SHIP PLACEMENT
-        System.out.println("Player 2, place your ships on the game field");
+        // Set up Player 2
+        setupPlayer(player2);
 
-        // Displays the blank game field
-        DisplayGameScreen.displayGameScreen(player2.getGameScreenArray());
-
-        // Player 2 will place all ships in a valid location.
-        placeShips(player2);
-
-        // While all ships are not sunk
+        // Main game loop
         boolean running = true;
         while (running) {
-            // Prompts the user to press enter
+            // Prompt the user to press Enter
             UserInputHandler.promptForEnter();
             if (isPlayer1Turn) {
-                // Displays the current game screen and fog of war for the user.
-                DisplayGameScreen.displayGameScreenAndFogOfWar(player1.getFogOfWarArray(),
-                        player1.getGameScreenArray());
-                takeShot(player1, player2);
+                // Player 1's turn
+                playTurn(player1, player2);
             } else {
-                DisplayGameScreen.displayGameScreenAndFogOfWar(player2.getFogOfWarArray(),
-                        player2.getGameScreenArray());
-                takeShot(player2, player1);
+                // Player 2's turn
+                playTurn(player2, player1);
             }
 
+            // Check if any player has won
             if (player1.allShipsSunk() || player2.allShipsSunk()) {
                 running = false;
             } else {
+                // Switch turns
                 isPlayer1Turn = !isPlayer1Turn;
             }
         }
-        System.out.println("You sank the last ship. You won. Congratulations!");
     }
 
+    /**
+     * Sets up a player by displaying the game field and prompting for ship placements.
+     *
+     * @param player The player to set up.
+     */
+    private void setupPlayer(Player player) {
+        System.out.println(player.getName() + ", place your ships on the game field");
+
+        // Display the blank game field
+        DisplayGameScreen.displayGameScreen(player.getGameScreenArray());
+
+        // Player places all ships
+        placeShips(player);
+    }
+
+    /**
+     * Handles the ship placement process for a player.
+     *
+     * @param player The player placing ships.
+     */
     private void placeShips(Player player) {
-        // Loops through each ship type
+        // Loop through each ship type
         for (ShipType shipType : ShipType.values()) {
-            // A flag keep track if the ship has been placed
             boolean validPlacement = false;
             while (!validPlacement) {
-
-                // Prompt the user to enter the coordinates for the current ship
+                // Prompt the user to enter coordinates for the current ship
                 System.out.println("Enter the coordinates of the " + shipType.getName() + " (" + shipType.getLength() + " cells): ");
                 String userInput = UserInputHandler.getUserString();
 
-                // User input must not be empty or null
+                // Validate user input
                 if (UserInputValidator.isNullOrEmpty(userInput)) {
                     System.out.println("Error! Coordinates must be provided.");
                     continue;
                 }
 
-                // Separate the coordinates
-                String[] coordinates = userInput.split(" ");
-
-                // Must be only two coordinates given
-                if (coordinates.length == 2) {
-
-                    // Start and end coordinates for ship placement
-                    String start = coordinates[0];
-                    String end = coordinates[1];
-
-                    // Validate coordinates
-                    if (ShipPlacementValidator.isValidCoordinates(start, end,
-                            shipType, player.getGameScreenArray())) {
-                        // Create the ship to be placed
-                        Ship ship = new Ship(start, end);
-                        ShipPlacementHandler.placeShip(ship, player.getGameScreenArray());
-
-                        // Add the ship to the list of ships
-                        player.placeShip(ship);
-
-                        // Update the valid placement to true
-                        validPlacement = true;
-
-                        // Displays the blank game field
-                        DisplayGameScreen.displayGameScreen(player.getGameScreenArray());
-
-                    }
-
-                } else {
-                    System.out.println("Error: Invalid input format. Please enter two coordinates.");
+                // Attempt to place the ship
+                validPlacement = player.placeShip(userInput, shipType);
+                if (!validPlacement) {
+                    System.out.println("Error! Invalid ship placement. Please try again.");
                 }
-
             }
-
+            // Display the updated game field
+            DisplayGameScreen.displayGameScreen(player.getGameScreenArray());
         }
     }
 
+    /**
+     * Handles a player's turn, displaying the game screens and processing a shot.
+     *
+     * @param shooter  The player taking the shot.
+     * @param opponent The player being shot at.
+     */
+    private void playTurn(Player shooter, Player opponent) {
+        // Display the game screens
+        DisplayGameScreen.displayGameScreenAndFogOfWar(shooter.getFogOfWarArray(), shooter.getGameScreenArray());
+        // Process the shot
+        takeShot(shooter, opponent);
+    }
+
+    /**
+     * Processes the shooting action for a player, validating the shot and updating the game state.
+     *
+     * @param shooter  The player taking the shot.
+     * @param opponent The player being shot at.
+     */
     private void takeShot(Player shooter, Player opponent) {
         boolean validShot = false;
         while (!validShot) {
@@ -129,40 +135,14 @@ public class PlayGame {
 
             String coordinate = UserInputHandler.getUserString();
 
-            // User input must not be empty or null
+            // Validate user input
             if (UserInputValidator.isNullOrEmpty(coordinate)) {
                 System.out.println("Error! Coordinates must be provided.");
                 continue; // Prompt again
             }
 
-            // Must be only one coordinate given
-            if (coordinate.length() > 1) {
-                // Validate coordinates
-                if (ShootingValidator.isValidShot(coordinate, opponent.getGameScreenArray())) {
-                    // Update the game screen with the correct symbol
-                    UpdateShot.updateShot(coordinate, opponent.getGameScreenArray(), shooter.getFogOfWarArray());
-
-                    Ship hitShip = ShipSunkHandler.findHitShip(coordinate, opponent.getShips());
-                    if (hitShip != null) {
-                        if (ShipSunkHandler.isShipSunk(hitShip, opponent.getGameScreen())) {
-                            if (opponent.allShipsSunk()) {
-                                System.out.println("You sank the last ship. You won. Congratulations!");
-                                System.exit(0); // Exit the program
-                            }
-                            System.out.println("You sank a ship! Specify a new target:");
-                        } else {
-                            System.out.println("You hit a ship!");
-                        }
-                    } else {
-                        System.out.println("You missed.");
-                    }
-
-                    // Update the valid shot flag
-                    validShot = true;
-                }
-            } else {
-                System.out.println("Error: Invalid input format. Please enter one coordinate.");
-            }
+            // Attempt to shoot at the coordinate
+            validShot = shooter.shoot(coordinate, opponent);
         }
     }
 }

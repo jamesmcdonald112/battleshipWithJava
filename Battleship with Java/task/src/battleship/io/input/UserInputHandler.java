@@ -29,6 +29,9 @@ public class UserInputHandler {
         return integer;
     }
 
+    /**
+     * Prompts the user to press enter to move to the next player
+     */
     public static void promptForEnter() {
         System.out.println("Press Enter and pass the move to another player");
         SCANNER.nextLine();

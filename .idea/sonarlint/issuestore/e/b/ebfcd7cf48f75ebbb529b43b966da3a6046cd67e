@@ -1,5 +1,5 @@
 
 \
-java:S1118":Add a private constructor to hide the implicit public one.(ƒÀ„½úÿÿÿÿ8ÚÔÀÎ2
-Y
-java:S1128"=Remove this unused import 'java.util.InputMismatchException'.(İ§18¯ÉÊÎ2
+java:S1118":Add a private constructor to hide the implicit public one.(ƒÀ„½úÿÿÿÿ8ñú2
+i
+java:S1128"GRemove this unused import 'javax.swing.plaf.synth.SynthColorChooserUI'.(Î˜®üÿÿÿÿ8Ûëíû2

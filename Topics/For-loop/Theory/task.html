@@ -1,6 +1,6 @@
 <h2>For-loop</h2>
 <div class="step-text">
-<p>Sometimes we need to repeat a block of code a certain number of times. To do this, Java provides the <code class="language-java">for</code>-loop.  This loop is often used to iterate over a range of values or through an array. If the number of iterations or the range borders are known, it is recommended to use the <code class="language-java">for</code>-loop. If they are unknown, the <code class="language-java">while</code>-loop may be the preferable solution.</p>
+<p>Sometimes we need to repeat a block of code a certain number of times. To do this, Java provides the <code class="language-java">for</code>-loop.  This loop is often used to iterate over a <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a range refers to a sequence of values between a lower and upper boundary, including both. | This concept is often used in the context of generating random numbers within a specific range or defining character sets using regular expressions. For example, you can specify a range of characters in a set using the dash symbol, where the character before the dash denotes the starting point and the character after it is the last character within the range. This is particularly useful when defining alphabetically ordered letters and numeric values.">range</a> of values or through an array. If the number of iterations or the range borders are known, it is recommended to use the <code class="language-java">for</code>-loop. If they are unknown, the <code class="language-java">while</code>-loop may be the preferable solution.</p>
 <h5 id="the-basic-for-loop-syntax" style="text-align: center;">The basic for-loop syntax</h5>
 <p>The <code class="language-java">for</code>-loop has the following basic <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, syntax refers to a set of rules that define how a program needs to be written in order to be valid. | It includes the order of components, such as statements written from top to bottom in a sequential manner, and the use of specific symbols, such as semicolons to terminate a statement. Java has its own specific syntax, which includes the use of keywords, identifiers, literals, operators, and separators. These tokens must adhere to the specific rules of the Java syntax and are separated by whitespace.">syntax</a>:</p>
 <pre><code class="language-java">for (initialization; condition; modification) {
@@ -28,9 +28,7 @@ for (int i = 0; i &lt;= n; i++) {
 }</code></pre>
 <p>The code displays:</p>
 <pre><code class="language-java">0 1 2 3 4 5 6 7 8 9 </code></pre>
-<p>The variables <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, a declaration is a statement that introduces a variable, method, or class into the program. | It specifies the type of the entity being declared, its name, and other relevant information such as access modifier, return type (for method), and initial value (for variable). For example, the declaration of a method may include its name, return type, access modifier, and parameter list. Declarations are essential for Java to understand the structure and behavior of the program. Incorrect declarations can lead to compilation errors. In the context of variables, a declaration specifies the type, name, and initial value of a variable. The type of a variable determines what possible operations can be performed on the variable and which value can be stored in it. Every variable has a name (also known as an identifier) to distinguish it from others. Before using a variable, it must be declared. The general form of a variable declaration is: `type identifier = value;`
-
-It's important to note that a declaration is not the same as an assignment.">declared</a> in the initialization statement are visible only inside the scope that includes all parts of the loop: the condition, the body, and the modification. The integer loop variables are often named <code class="language-java">i</code>, <code class="language-java">j</code>, <code class="language-java">k</code>, or <code class="language-java">index</code>.</p>
+<p>The variables declared in the initialization statement are visible only inside the scope that includes all parts of the loop: the condition, the body, and the modification. The integer loop variables are often named <code class="language-java">i</code>, <code class="language-java">j</code>, <code class="language-java">k</code>, or <code class="language-java">index</code>.</p>
 <p>Here’s another example. Let's calculate the sum of the integer numbers from 1 to 10 (inclusive) using the for-loop.</p>
 <pre><code class="language-java">int startIncl = 1, endExcl = 11;
 
@@ -48,7 +46,15 @@ System.out.println(sum); // it prints "55"</code></pre>
 for (; i &gt; 0; i--) {
     System.out.print(i + " ");
 }</code></pre>
-<p>Moreover, it is also possible to write an infinite loop without these parts at all:</p>
+<p>Moreover, it is also possible to write an <a class="theory-lookup not-relevant" href="/learn/step/3505" rel="noopener noreferrer nofollow" target="_blank" title="In Java, an infinite loop is a loop that keeps executing indefinitely because the condition that controls the loop never becomes false. | This can occur due to a programming error, such as forgetting to update a variable that is used in the loop's condition, or intentionally, for example, when a program needs to continuously monitor for certain events. Infinite loops can cause a program to become unresponsive or consume excessive system resources, so they should be used with caution. The while loop is an example of a pre-test loop, where the condition is tested before the loop's body is executed. If the condition is true, the loop's body is executed, and the condition is tested again. This process continues until the condition becomes false. If the condition is invariably true, it will result in an infinite loop. For example, the following loop prints integer numbers while a variable is less than 5:
+
+`int i = 0;`
+`while (i &lt; 5) {`
+ `System.out.println(i);`
+ `i++;`
+`}`
+
+Here, the value 0 is assigned to the variable i before the first execution of the loop. The condition (i &lt; 5) is tested before each execution of the loop's body. If the condition is true, the loop's body is executed, the value of i is incremented by 1, and the condition is tested again.">infinite loop</a> without these parts at all:</p>
 <pre><code class="language-java">for (;;) {
     // do something
 }</code></pre>

@@ -47,3 +47,13 @@ m
 =Topics/Fields and methods in enum/Danger levels/src/Main.java,b/b/bb3b612165572cb67973cabf0ecfa0e1e5d1000b
 è
 _Topics/Adding annotations/Creating and invoking methods in Animal and Dog classes/src/Main.java,0/5/0514bbdc87e084fa2cc178b14dcd82d667aa434d
+k
+;Battleship with Java/task/src/battleship/player/Player.java,e/9/e931ab3953f30cc9797181f15725f199f4093f1c
+r
+BBattleship with Java/task/src/battleship/ship/ShipSunkHandler.java,3/0/308b414d23ca6acd0e42de5c510c32d0d84a0adc
+Y
+)Battleship with Java/task/test/Tests.java,9/c/9c41e70b602bc2964fa1c2cb56bc6f1fa1df9daf
+m
+=Topics/Adding annotations/Deprecated annotation/src/Task.java,8/7/878bcf42c8a94d41e5989119b58aae8a9f4c7dd8
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
